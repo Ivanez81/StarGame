@@ -27,7 +27,7 @@ public class Base2DScreen implements Screen, InputProcessor {
 
     @Override
     public void resize(int width, int height) {
-        System.out.println("resize width= " + width + " height = " + height);
+        System.out.println("resize width = " + width + " height = " + height);
     }
 
     @Override
@@ -52,37 +52,37 @@ public class Base2DScreen implements Screen, InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        System.out.println("keyDown keycode=" + keycode);
+        System.out.println("keyDown keycode = " + keycode);
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        System.out.println("keyUp keycode=" + keycode);
+        System.out.println("keyUp keycode = " + keycode);
         return false;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        System.out.println("keyTyped character=" + character);
+        System.out.println("keyTyped character = " + character);
         return false;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        System.out.println("touchDown screenX=" + screenX + " screenY=" + (Gdx.graphics.getHeight() - screenY));
+        System.out.println("touchDown screenX = " + screenX + " screenY = " + (Gdx.graphics.getHeight() - screenY));
         return false;
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        System.out.println("touchUp screenX=" + screenX + " screenY=" + screenY);
+        System.out.println("touchUp screenX = " + screenX + " screenY = " + screenY);
         return false;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        System.out.println("touchDragged screenX=" + screenX + " screenY=" + screenY);
+        System.out.println("touchDragged screenX = " + screenX + " screenY = " + screenY);
         return false;
     }
 
