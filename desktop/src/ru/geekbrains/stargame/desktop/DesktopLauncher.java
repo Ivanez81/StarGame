@@ -9,6 +9,9 @@ import ru.geekbrains.stargame.StarGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "IvanezStarGame";
+//		config.width = 480;
+//		config.height = 320;
 		new LwjglApplication(new Star2DGame(), config);
 	}
 }

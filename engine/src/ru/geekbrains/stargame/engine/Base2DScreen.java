@@ -59,9 +59,10 @@ public class Base2DScreen implements Screen, InputProcessor {
         screenBounds.setLeft(0);
         screenBounds.setBottom(0);
 
-        float aspect = width / (float) height;
-        worldBounds.setHeight(1f);
-        worldBounds.setWidth(1f * aspect);
+        // поменял высоту и ширину местами.
+        float aspect = height / (float) width; // мне кажется что так правильнее должно быть
+        worldBounds.setHeight(1f * aspect); // мне кажется что так правильнее должно быть
+        worldBounds.setWidth(1f); // мне кажется что так правильнее должно быть
         MatrixUtils.calcTransitionMatrix(worldToGl, worldBounds, glBounds);
         batch.setProjectionMatrix(worldToGl);
         MatrixUtils.calcTransitionMatrix(screenToWorld, screenBounds, worldBounds);
