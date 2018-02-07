@@ -21,16 +21,16 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
 
     private static final float BUTTON_HEIGHT = 0.15f;
     private static final float BUTTON_PRESS_SCALE = 0.9f;
+    private static final int NUMBER_OF_STARS = 1000;
 
     private Texture backgroundTexture;
     private Background background;
-
     private TextureAtlas atlas;
 
     private ButtonExit buttonExit;
     private ButtonPlay buttonPlay;
 
-    private Star star;
+    private Star[] star = new Star[NUMBER_OF_STARS];
 
     public MenuScreen(Game game) {
         super(game);
@@ -47,7 +47,9 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
         buttonExit.setHeightProportion(BUTTON_HEIGHT);
         buttonPlay = new ButtonPlay(atlas, BUTTON_PRESS_SCALE, this);
         buttonPlay.setHeightProportion(BUTTON_HEIGHT);
-        star = new Star(atlas, Rnd.nextFloat(-0.005f, 0.005f), Rnd.nextFloat(-0.5f, -0.1f), 0.01f);
+        for (int i = 0; i < NUMBER_OF_STARS; i++) {
+            star[i] = new Star(atlas, Rnd.nextFloat(-0.005f, 0.005f), Rnd.nextFloat(-0.3f, -0.1f), 0.005f);
+        }
     }
 
     @Override
@@ -58,7 +60,10 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
     }
 
     public void update(float delta) {
-        star.update(delta);
+        for (int i = 0; i < NUMBER_OF_STARS; i++) {
+            star[i].update(delta);
+        }
+
     }
 
     public void draw() {
@@ -66,7 +71,9 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         background.draw(batch);
-        star.draw(batch);
+        for (int i = 0; i < NUMBER_OF_STARS; i++) {
+            star[i].draw(batch);
+        }
         buttonExit.draw(batch);
         buttonPlay.draw(batch);
         batch.end();
@@ -76,7 +83,9 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
     protected void resize(Rect worldBounds) {
         super.resize(worldBounds);
         background.resize(worldBounds);
-        star.resize(worldBounds);
+        for (int i = 0; i < NUMBER_OF_STARS; i++) {
+            star[i].resize(worldBounds);
+        }
         buttonExit.resize(worldBounds);
         buttonPlay.resize(worldBounds);
     }
