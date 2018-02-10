@@ -17,9 +17,9 @@ public class MainShip extends Sprite {
 
     private boolean pressedLeft;
     private boolean pressedRight;
+    private int pointerCount = 0;
 
     private Rect worldBounds;
-
 
     public MainShip(TextureAtlas atlas) {
         super(atlas.findRegion("main_ship"), 1, 2, 2);
@@ -86,15 +86,31 @@ public class MainShip extends Sprite {
     @Override
     public void touchDown(Vector2 touch, int pointer) {
         if (worldBounds.pos.x > touch.x) {
-            moveLeft();
+            if (pointer > pointerCount) {
+                pointerCount++;
+                moveLeft();
+            } else {
+                moveLeft();
+            }
         } else {
-            moveRight();
+            if (pointer > pointerCount) {
+                pointerCount++;
+                moveRight();
+            } else {
+                moveRight();
+            }
         }
     }
 
     @Override
     public void touchUp(Vector2 touch, int pointer) {
-        stop();
+        if (pointerCount == 0) {
+            stop();
+        } else {
+            pointerCount--;
+        }
+
+
     }
 
     private void moveRight() {

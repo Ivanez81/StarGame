@@ -1,6 +1,5 @@
 package ru.geekbrains.stargame.engine.pool;
 
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;

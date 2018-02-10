@@ -2,6 +2,7 @@ package ru.geekbrains.stargame.screen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -9,16 +10,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.geekbrains.stargame.Background;
+import ru.geekbrains.stargame.bullet.Bullet;
 import ru.geekbrains.stargame.engine.Base2DScreen;
 import ru.geekbrains.stargame.engine.math.Rect;
 import ru.geekbrains.stargame.engine.math.Rnd;
+import ru.geekbrains.stargame.engine.pool.BulletPool;
 import ru.geekbrains.stargame.ship.MainShip;
 import ru.geekbrains.stargame.star.Star;
 
 public class GameScreen extends Base2DScreen {
 
     private static final int STAR_COUNT = 56;
-    private static final float STAR_HEIGHT = 0.01f;
+    private static final float STAR_HEIGHT = 0.005f;
+    private static final float BULLET_HEIGHT = 0.01f;
 
     private Texture backgroundTexture;
     private Background background;
@@ -28,6 +32,9 @@ public class GameScreen extends Base2DScreen {
     private MainShip mainShip;
 
     private Star star[];
+
+    private BulletPool bulletPool;
+    private Bullet bullet;
 
     public GameScreen(Game game) {
         super(game);
@@ -43,6 +50,8 @@ public class GameScreen extends Base2DScreen {
         atlas = new TextureAtlas("mainAtlas.tpack");
 
         mainShip = new MainShip(atlas);
+
+        bulletPool = new BulletPool();
 
         star = new Star[STAR_COUNT];
         for (int i = 0; i < star.length; i++) {
@@ -62,6 +71,8 @@ public class GameScreen extends Base2DScreen {
             star[i].update(delta);
         }
         mainShip.update(delta);
+
+        if (bullet != null) bullet.update(delta);
     }
 
     public void draw() {
@@ -73,6 +84,9 @@ public class GameScreen extends Base2DScreen {
             star[i].draw(batch);
         }
         mainShip.draw(batch);
+
+        if (bullet != null) bullet.draw(batch);
+
         batch.end();
     }
 
@@ -84,6 +98,8 @@ public class GameScreen extends Base2DScreen {
             star[i].resize(worldBounds);
         }
         mainShip.resize(worldBounds);
+
+        if (bullet != null) bullet.resize(worldBounds);
     }
 
     @Override
@@ -95,6 +111,9 @@ public class GameScreen extends Base2DScreen {
 
     @Override
     public boolean keyDown(int keycode) {
+        if (keycode == Input.Keys.W || keycode == Input.Keys.UP) {
+            bullet = new Bullet(atlas, mainShip.pos.x, mainShip.pos.y, BULLET_HEIGHT);
+        }
         mainShip.keyDown(keycode);
         return false;
     }
