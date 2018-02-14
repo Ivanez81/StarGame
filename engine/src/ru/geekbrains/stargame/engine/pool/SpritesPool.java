@@ -66,7 +66,7 @@ public abstract class SpritesPool<T extends Sprite> {
         freeObjects.clear();
     }
 
-    protected  void debugLog() {
+    protected void debugLog() {
 
     }
 }

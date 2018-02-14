@@ -32,7 +32,7 @@ public class Bullet extends Sprite {
             float height,
             Rect worldBounds,
             int damage
-            ) {
+    ) {
         this.owner = owner;
         this.regions[0] = region;
         this.pos.set(pos0);

@@ -2,9 +2,7 @@ package ru.geekbrains.stargame.bullet;
 
 import ru.geekbrains.stargame.engine.pool.SpritesPool;
 
-
 public class BulletPool extends SpritesPool<Bullet> {
-
 
     @Override
     protected Bullet newObject() {
