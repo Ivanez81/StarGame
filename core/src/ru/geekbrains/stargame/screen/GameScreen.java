@@ -59,7 +59,7 @@ public class GameScreen extends Base2DScreen {
     public void show() {
         super.show();
 
-        music  = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
         music.setLooping(true);
         music.play();
         soundExplosion = Gdx.audio.newSound(Gdx.files.internal("sounds/explosion.wav"));
@@ -124,6 +124,17 @@ public class GameScreen extends Base2DScreen {
                     enemy.damage(bullet.getDamage());
                     bullet.setDestroyed(true);
                 }
+            }
+        }
+
+        // нанесение урона основному кораблю
+        for (Bullet bullet : bulletList) {
+            if (bullet.getOwner() == mainShip || bullet.isDestroyed()) {
+                continue;
+            }
+            if (mainShip.isBulletCollision(bullet)) {
+                mainShip.damage(bullet.getDamage());
+                bullet.setDestroyed(true);
             }
         }
     }

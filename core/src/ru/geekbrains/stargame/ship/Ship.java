@@ -15,7 +15,7 @@ import ru.geekbrains.stargame.explosion.ExplosionPool;
  * Базовый класс для кораблей
  */
 
-public abstract class Ship extends Sprite{
+public abstract class Ship extends Sprite {
 
     private static final float DAMAGE_ANIMATE_INTERVAL = 0.1f;
     private float damageAnimateTimer = DAMAGE_ANIMATE_INTERVAL;
@@ -34,7 +34,7 @@ public abstract class Ship extends Sprite{
 
     protected final Vector2 bulletV = new Vector2(); // скорость пули
     protected float bulletHeight; // высота пули
-    protected  int bulletDamage; // урон
+    protected int bulletDamage; // урон
 
     protected float reloadInterval; // время перезарядки
     protected float reloadTimer; // таймер для стрельбы
@@ -71,6 +71,12 @@ public abstract class Ship extends Sprite{
     public void damage(int damage) {
         frame = 1;
         damageAnimateTimer = 0;
+        hp = hp - damage;
+        System.out.println("Ship HP = " + hp);
+        if (hp <= 0) {
+            boom();
+            setDestroyed(true);
+        }
     }
 
     protected void shoot() {

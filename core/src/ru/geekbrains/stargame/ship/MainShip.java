@@ -17,11 +17,8 @@ public class MainShip extends Ship {
 
     private final Vector2 v0 = new Vector2(0.5f, 0.0f);
 
-
     private boolean pressedLeft;
     private boolean pressedRight;
-
-
 
     private int leftPointer = INVALID_POINTER;
     private int rightPointer = INVALID_POINTER;
@@ -35,6 +32,7 @@ public class MainShip extends Ship {
         this.bulletV.set(0, 0.5f);
         this.bulletDamage = 1;
         this.reloadInterval = 0.2f;
+        this.hp = 100;
     }
 
     @Override
@@ -141,5 +139,13 @@ public class MainShip extends Ship {
 
     public Vector2 getV() {
         return v;
+    }
+
+    public boolean isBulletCollision(Rect bullet) {
+        return !(bullet.getRight() < getLeft()
+                || bullet.getLeft() > getRight()
+                || bullet.getBottom() > getTop()
+                || bullet.getTop() < pos.y
+        );
     }
 }
