@@ -19,8 +19,8 @@ import ru.geekbrains.stargame.ui.ButtonPlay;
 
 public class MenuScreen extends Base2DScreen implements ActionListener {
 
-    private static final int STAR_COUNT = 256;
-    private static final float STAR_HEIGHT = 0.01f;
+    private static final int STAR_COUNT = 128;
+    private static final float STAR_HEIGHT = 0.003f;
 
     private static final float BUTTON_HEIGHT = 0.15f;
     private static final float BUTTON_PRESS_SCALE = 0.9f;
@@ -42,10 +42,10 @@ public class MenuScreen extends Base2DScreen implements ActionListener {
     @Override
     public void show() {
         super.show();
-        backgroundTexture = new Texture("textures/bg.png");
+        backgroundTexture = new Texture("textures/bg_4.png");
         background = new Background(new TextureRegion(backgroundTexture));
 
-        atlas = new TextureAtlas("textures/menuAtlas.tpack");
+        atlas = new TextureAtlas("textures/btnAtlas.tpack");
         buttonExit = new ButtonExit(atlas, BUTTON_PRESS_SCALE, this);
         buttonExit.setHeightProportion(BUTTON_HEIGHT);
         buttonPlay = new ButtonPlay(atlas, BUTTON_PRESS_SCALE, this);

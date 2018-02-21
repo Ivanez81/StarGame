@@ -11,7 +11,7 @@ public class MessageGameOver extends Sprite {
     private static final float BOTTOM_MARGIN = 0.009f;
 
     public MessageGameOver(TextureAtlas atlas) {
-        super(atlas.findRegion("message_game_over"));
+        super(atlas.findRegion("gameOver"));
         setHeightProportion(HEIGHT);
         setBottom(BOTTOM_MARGIN);
     }

@@ -10,7 +10,7 @@ import ru.geekbrains.stargame.engine.ui.ScaledTouchUpButton;
 public class ButtonExit extends ScaledTouchUpButton {
 
     public ButtonExit(TextureAtlas atlas, float pressScale, ActionListener actionListener) {
-        super(atlas.findRegion("btExit"), pressScale, actionListener);
+        super(atlas.findRegion("btnExit"), pressScale, actionListener);
     }
 
     @Override

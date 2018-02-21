@@ -11,26 +11,22 @@ import ru.geekbrains.stargame.explosion.ExplosionPool;
 
 public class MainShip extends Ship {
 
-    private static final float SHIP_HEIGHT = 0.15f;
+    private static final float SHIP_HEIGHT = 0.1f;
     private static final float BOTTOM_MARGIN = 0.05f;
     private static final int INVALID_POINTER = -1;
 
     private final Vector2 v0 = new Vector2(0.5f, 0.0f);
 
-
     private boolean pressedLeft;
     private boolean pressedRight;
-
-
 
     private int leftPointer = INVALID_POINTER;
     private int rightPointer = INVALID_POINTER;
 
-
     public MainShip(TextureAtlas atlas, BulletPool bulletPool, ExplosionPool explosionPool, Rect worldBounds, Sound laserSound) {
-        super(atlas.findRegion("main_ship"), 1, 2, 2, bulletPool, explosionPool, worldBounds, laserSound);
+        super(atlas.findRegion("mainShip"), 1, 2, 2, bulletPool, explosionPool, worldBounds, laserSound);
         setHeightProportion(SHIP_HEIGHT);
-        this.bulletRegion = atlas.findRegion("bulletMainShip");
+        this.bulletRegion = atlas.findRegion("greenBullet0");
     }
 
     public void setToNewGame() {

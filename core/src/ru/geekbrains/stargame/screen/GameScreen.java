@@ -22,7 +22,7 @@ import ru.geekbrains.stargame.engine.font.Font;
 import ru.geekbrains.stargame.engine.math.Rect;
 import ru.geekbrains.stargame.engine.math.Rnd;
 import ru.geekbrains.stargame.explosion.ExplosionPool;
-import ru.geekbrains.stargame.ship.EnemyEmmiter;
+import ru.geekbrains.stargame.ship.EnemyEmitter;
 import ru.geekbrains.stargame.ship.EnemyPool;
 import ru.geekbrains.stargame.ship.EnemyShip;
 import ru.geekbrains.stargame.ship.MainShip;
@@ -37,7 +37,7 @@ public class GameScreen extends Base2DScreen implements ActionListener {
     private State state;
 
     private static final int STAR_COUNT = 56;
-    private static final float STAR_HEIGHT = 0.01f;
+    private static final float STAR_HEIGHT = 0.005f;
     private static final float FONT_SIZE = 0.02f;
 
     private Texture backgroundTexture;
@@ -53,7 +53,7 @@ public class GameScreen extends Base2DScreen implements ActionListener {
     private ExplosionPool explosionPool;
     private EnemyPool enemyPool;
 
-    private EnemyEmmiter enemyEmmiter;
+    private EnemyEmitter enemyEmitter;
 
     private Sound soundExplosion;
     private Sound soundLaser;
@@ -85,16 +85,16 @@ public class GameScreen extends Base2DScreen implements ActionListener {
         soundLaser = Gdx.audio.newSound(Gdx.files.internal("sounds/laser.wav"));
         soundBullet = Gdx.audio.newSound(Gdx.files.internal("sounds/bullet.wav"));
 
-        backgroundTexture = new Texture("textures/bg.png");
+        backgroundTexture = new Texture("textures/bg_4.png");
         background = new Background(new TextureRegion(backgroundTexture));
 
-        atlas = new TextureAtlas("textures/mainAtlas.tpack");
+        atlas = new TextureAtlas("textures/myMainAtlas.tpack");
 
         this.explosionPool = new ExplosionPool(atlas, soundExplosion);
         mainShip = new MainShip(atlas, bulletPool, explosionPool, worldBounds, soundLaser);
 
         this.enemyPool = new EnemyPool(bulletPool, explosionPool, worldBounds, mainShip, soundBullet);
-        this.enemyEmmiter = new EnemyEmmiter(enemyPool, worldBounds, atlas);
+        this.enemyEmitter = new EnemyEmitter(enemyPool, worldBounds, atlas);
 
         star = new TrackingStar[STAR_COUNT];
         for (int i = 0; i < star.length; i++) {
@@ -114,9 +114,9 @@ public class GameScreen extends Base2DScreen implements ActionListener {
         sbFrags.setLength(0);
         sbHP.setLength(0);
         sbStage.setLength(0);
-        font.draw(batch, sbFrags.append("Frags:").append(frags), worldBounds.getLeft(), worldBounds.getTop());
-        font.draw(batch, sbHP.append("HP:").append(mainShip.getHp()), worldBounds.pos.x, worldBounds.getTop(), Align.center);
-        font.draw(batch, sbStage.append("Stage:").append(enemyEmmiter.getStage()), worldBounds.getRight(), worldBounds.getTop(), Align.right);
+        font.draw(batch, sbFrags.append("Frags: ").append(frags), worldBounds.getLeft(), worldBounds.getTop());
+        font.draw(batch, sbHP.append("HP: ").append(mainShip.getHp()), worldBounds.pos.x, worldBounds.getTop(), Align.center);
+        font.draw(batch, sbStage.append("Stage: ").append(enemyEmitter.getStage()), worldBounds.getRight(), worldBounds.getTop(), Align.right);
     }
 
     @Override
@@ -196,7 +196,7 @@ public class GameScreen extends Base2DScreen implements ActionListener {
                 bulletPool.updateActiveObjects(delta);
                 enemyPool.updateActiveObjects(delta);
                 mainShip.update(delta);
-                enemyEmmiter.generateEnemy(delta, frags);
+                enemyEmitter.generateEnemy(delta, frags);
                 if (mainShip.isDestroyed()) {
                     state = State.GAME_OVER;
                 }
@@ -288,7 +288,7 @@ public class GameScreen extends Base2DScreen implements ActionListener {
     }
 
     private void startNewGame() {
-        enemyEmmiter.setToNewGame();
+        enemyEmitter.setToNewGame();
 
         state = State.PLAYING;
         frags = 0;
@@ -297,7 +297,6 @@ public class GameScreen extends Base2DScreen implements ActionListener {
 
         bulletPool.freeAllActiveObjects();
         enemyPool.freeAllActiveObjects();
-//        explosionPool.freeAllActiveObjects();
     }
 
     @Override

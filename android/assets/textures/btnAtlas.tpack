@@ -1,0 +1,26 @@
+
+btnAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+star
+  rotate: false
+  xy: 1, 1
+  size: 366, 366
+  orig: 366, 366
+  offset: 0, 0
+  index: -1
+btnExit
+  rotate: false
+  xy: 369, 111
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+btnPlay
+  rotate: false
+  xy: 627, 111
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

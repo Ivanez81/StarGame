@@ -11,7 +11,7 @@ import ru.geekbrains.stargame.engine.ui.ScaledTouchUpButton;
 public class ButtonPlay extends ScaledTouchUpButton {
 
     public ButtonPlay(TextureAtlas atlas, float pressScale, ActionListener actionListener) {
-        super(atlas.findRegion("btPlay"), pressScale, actionListener);
+        super(atlas.findRegion("btnPlay"), pressScale, actionListener);
     }
 
 

@@ -1,0 +1,159 @@
+
+myMainAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+explosion
+  rotate: false
+  xy: 1, 1147
+  size: 900, 900
+  orig: 900, 900
+  offset: 0, 0
+  index: -1
+mainShip
+  rotate: false
+  xy: 1, 889
+  size: 512, 256
+  orig: 512, 256
+  offset: 0, 0
+  index: -1
+enemy7
+  rotate: false
+  xy: 903, 1824
+  size: 516, 223
+  orig: 516, 223
+  offset: 0, 0
+  index: -1
+star0
+  rotate: false
+  xy: 1, 521
+  size: 366, 366
+  orig: 366, 366
+  offset: 0, 0
+  index: -1
+enemy9
+  rotate: false
+  xy: 903, 1564
+  size: 472, 258
+  orig: 472, 258
+  offset: 0, 0
+  index: -1
+enemy6
+  rotate: false
+  xy: 903, 1304
+  size: 420, 258
+  orig: 420, 258
+  offset: 0, 0
+  index: -1
+enemy4
+  rotate: false
+  xy: 1421, 1890
+  size: 516, 157
+  orig: 516, 157
+  offset: 0, 0
+  index: -1
+enemy5
+  rotate: false
+  xy: 515, 887
+  size: 390, 258
+  orig: 390, 258
+  offset: 0, 0
+  index: -1
+enemy3
+  rotate: false
+  xy: 1, 261
+  size: 338, 258
+  orig: 338, 258
+  offset: 0, 0
+  index: -1
+enemy8
+  rotate: false
+  xy: 1, 1
+  size: 328, 258
+  orig: 328, 258
+  offset: 0, 0
+  index: -1
+gameOver
+  rotate: false
+  xy: 1421, 1808
+  size: 502, 80
+  orig: 502, 80
+  offset: 0, 0
+  index: -1
+newGame
+  rotate: false
+  xy: 903, 1239
+  size: 367, 63
+  orig: 367, 63
+  offset: 0, 0
+  index: -1
+greenBullet0
+  rotate: false
+  xy: 369, 759
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+redBullet0
+  rotate: false
+  xy: 369, 634
+  size: 128, 123
+  orig: 128, 123
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 1325, 1542
+  size: 15, 20
+  orig: 15, 20
+  offset: 0, 0
+  index: 1
+greenLaser
+  rotate: false
+  xy: 1939, 2029
+  size: 12, 18
+  orig: 12, 18
+  offset: 0, 0
+  index: -1
+blaster
+  rotate: false
+  xy: 341, 503
+  size: 10, 16
+  orig: 10, 16
+  offset: 0, 0
+  index: -1
+blueLaser
+  rotate: false
+  xy: 331, 241
+  size: 7, 18
+  orig: 7, 18
+  offset: 0, 0
+  index: -1
+redLaser
+  rotate: false
+  xy: 1377, 1804
+  size: 7, 18
+  orig: 7, 18
+  offset: 0, 0
+  index: -1
+blueBullet
+  rotate: false
+  xy: 1925, 1883
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+greenBullet
+  rotate: false
+  xy: 903, 1232
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+redBullet
+  rotate: false
+  xy: 1272, 1297
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1

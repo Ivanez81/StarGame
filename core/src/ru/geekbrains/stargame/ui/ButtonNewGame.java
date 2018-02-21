@@ -14,7 +14,7 @@ public class ButtonNewGame extends ScaledTouchUpButton {
     private static final float PRESS_SCALE = 0.9f;
 
     public ButtonNewGame(TextureAtlas atlas, ActionListener actionListener) {
-        super(atlas.findRegion("button_new_game"), PRESS_SCALE, actionListener);
+        super(atlas.findRegion("newGame"), PRESS_SCALE, actionListener);
         setHeightProportion(HEIGHT);
         setTop(TOP);
     }
